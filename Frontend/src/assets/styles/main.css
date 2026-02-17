@@ -1,0 +1,103 @@
+/* src/assets/styles/main.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Импортируем шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #0F172A;
+  overflow-x: hidden;
+}
+
+/* Кастомные утилиты */
+.gradient-text {
+  background: linear-gradient(135deg, #DC2626 0%, #991b1b 50%, #B91C1C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #FDE68A 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #DC2626 0%, #991b1b 30%, #7F1D1D 100%);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* Кастомные компоненты */
+.btn-primary {
+  @apply bg-apogee-red text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-apogee-darkRed hover:scale-105 hover:shadow-2xl shadow-lg;
+}
+
+.btn-secondary {
+  @apply border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-apogee-red hover:scale-105;
+}
+
+.btn-gold {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:from-yellow-600 hover:to-yellow-700 hover:scale-105 hover:shadow-2xl shadow-lg;
+}
+
+.card-hover {
+  @apply transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer;
+}
+
+/* Российский узор */
+.russian-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+  background-size: 100% 100%;
+}
